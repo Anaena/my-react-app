@@ -1,70 +1,64 @@
-# Getting Started with Create React App
+# react-2022-05-24
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# ДЗ.
 
-## Available Scripts
+## Как делать:
 
-In the project directory, you can run:
+0. Сделать форк этого репозитория в свой аккаунт (только 1 раз в самом начале).
 
-### `npm start`
+1. Перед выполнением ДЗ сделайте пул мастера этого репозитория себе в форк (чтобы иметь актуальный код);
+2. Обновить зависимости `yarn` или `npm i`;
+3. Создайте новую ветку от актуального мастера для выполнения ДЗ;
+4. Выполните ДЗ в этой ветке;
+5. Сделайте Pull Request этой ветки в мастер моего репозитория;
+6. Напишите мне (a.senyukov@javascript.info) письмо со ссылкой на PR.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**Важно! В результате всех этих манипуляций в вашем мастере должны быть только мои комиты, все ваши комиты должны быть в отдельных ветках под каждую домашку.**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Дедлайн – 23:00 по GMT+3 за день до занятия.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+HT1
+=====
+1. В каждом ресторане отображать его меню. Меню - 4 позиции(4 блюда, только название). В каждом ресторане разные.
+2. В каждом ресторане отображать отзывы о нем. По 3 отзыва в каждом (Только текст отзыва). В каждом ресторане свои отзывы.
 
-### `npm run build`
+HT2
+====
+1. Создать компонент Rate, который принимает рейтинг (число от 1 до 5) и отображает его звездочками свг. Например <Rate value={3} />. Отрисовываем в компоненте Restaurant и Component.
+2. В компоненте Restaurant отрисовываем средний рейтинг по всем ревью.
+3. Создать компонент Component, который принимает все ревью по одному ресторану и отображает имена и отзывы про ресторан, а так же рейтинг с помощью компонента Rate. Отрисовываем в компоненте Restaurant. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+HT3
+====
+1. В компоненте ресторанов отрисовать кнопки с названиями ресторанов, по клику на которые выбирается ресторан.
+2. В форму добавления ревью добавить возможность проставить рейтинг(ввод только чисел). При изменении имени рейтинг в форме сбрасывается как и текст. Добавить поле и доработать reducer.
+**Доп задание: вместо инпута рейтинга сделать звездочки по клику на которые будет вводится рейтинг.**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+HT4
+====
+1. Надо вернуть корзину. Мы переделали модуль корзины с имен на id. Поэтому нужно создать контейнер для компонента корзины и получать из модуля корзины id выбранных продуктов, по id отрисовыать контейнеры продуктов корзины и уже по id получать название и количество.
+2. Для ревью и юзеров создать модули в сторе. (редьюсеры и селекторы по аналогии с продуктами).
+3. Надо вернуть ревью. Действуем по аналогии с меню. Создаем ReviewContainer, UserContainer и компонент User.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+HT5
+====
+1. Переписать оставшиеся модули на слайсы.
+2. Реализовать табы ресторанов.
 
-### `npm run eject`
+HT6
+====
+1. необходимо отказаться от моков и полностью перейти на получение данных с сервера.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Заметки к ДЗ 6:
+1. Инициируйте загрузку данных как можно ближе к месту использования, но в контейнере.
+2. Грузить продукты и ревью только по конкретному ресторану. (`products?id=${restaurantId}`).
+3. Не грузить если уже загружены.
+4. Для продуктов и ревью не затирайте данные в сторе, а мерджите их.
+5. ЗАПУСТИТЕ СЕРВЕР ПЕРЕД ПРИЛОЖЕНИЕМ) (npm run start-server, yarn run start-server).
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+HT7
+====
+1. Сделать страницу с списком всех блюд из всех ресторанов.
+2. По клику на блюдо открывать страницу этого блюда с всей информацией о нем. (важно, проверяем, что продукт загружен, либо грузим только его)
+* Добавить табы меню и ревью в ресторан. По клику на таб открывать меню или ревью как вложенные роуты ресторана.
