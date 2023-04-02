@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Restaurant } from '../Restaurant/Restaurant';
 import styles from './styles.module.css';
 import { Tabs } from '../Tabs/Tabs';
+import Basket from '../Basket/Basket';
 
 export const Restaurants = ({ restaurants }) => {
   const [currentRestaurantId, setCurrentRestaurantId] = useState(
@@ -24,6 +25,7 @@ export const Restaurants = ({ restaurants }) => {
         <Restaurant
           restaurant={restaurants.find(({ id }) => id === currentRestaurantId)}
         />
+        <Basket className={styles.basket} />
       </div>
     </div>
   );
