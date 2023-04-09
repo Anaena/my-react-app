@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -8,17 +8,21 @@ class ErrorBoundary extends React.Component {
   }
 
   static getDerivedStateFromError(error) {
-    return {hasError: true, error}
-  };
+    return { hasError: true, error };
+  }
 
   componentDidCatch(error, errorInfo) {
     console.error(error);
   }
   render() {
     if (this.state.hasError) {
-      return <h1>{
-        process.env.REACT_APP_STAND === 'production' ? 'У нас ошибка.' : this.state.error.toString()
-      }</h1>
+      return (
+        <h1>
+          {process.env.REACT_APP_STAND === 'production'
+            ? 'У нас ошибка.'
+            : this.state.error.toString()}
+        </h1>
+      );
     }
     return this.props.children;
   }

@@ -22,16 +22,19 @@ class Store {
   dispatch(action) {
     this.makeAction(action);
 
-    Object.values(this.subscribers).forEach((subscriber) => {
+    Object.values(this.subscribers).forEach(subscriber => {
       typeof subscriber === 'function' && subscriber(this.state);
-    })
+    });
 
     console.log(`state after dispath ${action?.type || 'default'}`, this.state);
   }
 
   makeAction(action) {
-    Object.keys(this.reducers).forEach((reducerKey) => {
-      this.state[reducerKey] = this.reducers[reducerKey](this.state[reducerKey], action);
+    Object.keys(this.reducers).forEach(reducerKey => {
+      this.state[reducerKey] = this.reducers[reducerKey](
+        this.state[reducerKey],
+        action
+      );
     });
   }
 }

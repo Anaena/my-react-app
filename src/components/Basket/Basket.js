@@ -1,34 +1,23 @@
-import React, { useContext, useEffect, useState } from "react";
+import React from 'react';
 import styles from './styles.module.css';
 import classnames from 'classnames';
-import { StoreContext } from "../../context/ThemeContext/StoreContext";
+import { useSelector } from '../../store/Store/hooks/useSelector';
+import { selectBasket } from '../../store/basket/selectors';
 
-function useSelector() {
-  const componentKey = 'Basket';
-  const [state, setState] = useState();
-  const store = useContext(StoreContext);
-
-  useEffect(() => {
-    store.subscribe(componentKey, (state) => setState(state.basket));
-
-    return () => store.unsubscribe(componentKey);
-  }, []);
-
-  return state;
-}
-const Basket = ({className}) => {
-  const selectProducts = useSelector();
+const Basket = ({ className }) => {
+  const selectProducts = useSelector(selectBasket);
 
   return (
     <div className={classnames(styles.root, className)}>
       <h2 className={styles.title}>Basket</h2>
       <ul className={styles.list}>
-        {selectProducts && Object.keys(selectProducts).map((productKey) => (
-          <li key={productKey} className={styles.product}>
-            <span>{productKey}</span>
-            <span>{selectProducts[productKey]}</span>
-          </li>
-        ))}
+        {selectProducts &&
+          Object.keys(selectProducts).map(productKey => (
+            <li key={productKey} className={styles.product}>
+              <span>{productKey}</span>
+              <span>{selectProducts[productKey]}</span>
+            </li>
+          ))}
       </ul>
     </div>
   );

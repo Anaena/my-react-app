@@ -53,9 +53,18 @@ export const NewReviewForm = () => {
       />
 
       <span className={styles.title}>Rating</span>
-      <input value={formState.rating} type="number" max="5" min="0" onChange={(event) => {
-        dispatch({type: actionTypes.changeRating, payload: Number(event.target.value)});
-      }}/>
+      <input
+        value={formState.rating}
+        type="number"
+        max="5"
+        min="0"
+        onChange={event => {
+          dispatch({
+            type: actionTypes.changeRating,
+            payload: Number(event.target.value),
+          });
+        }}
+      />
     </div>
   );
 };

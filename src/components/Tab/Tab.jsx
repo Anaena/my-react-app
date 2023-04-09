@@ -3,7 +3,7 @@ import classnames from 'classnames';
 
 import styles from './styles.module.css';
 import { ThemeContext } from '../../context/ThemeContext/ThemeContext';
-import { THEMES } from "../../constants/theme";
+import { THEMES } from '../../constants/theme';
 
 export const Tab = ({ label, onTabSelect, isSelected, className }) => {
   const { theme } = useContext(ThemeContext);

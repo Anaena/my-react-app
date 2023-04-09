@@ -1,4 +1,4 @@
 node_modules
-backend
-**/*.test.js
-src/lib/vendors
+forLessons
+public
+src/constants/fixtures.js
